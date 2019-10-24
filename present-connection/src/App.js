@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import "./App.css";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-// import Add from "./Add";
+import Form from "./Form";
+import Post from "./Post";
+import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -11,6 +13,13 @@ class App extends Component {
       items: [],
       isLoaded: false
     };
+    this.addItem = this.addItem.bind(this);
+  }
+
+  addItem(userId, id, title, body) {
+    this.setState(prevState => ({
+      items: [...prevState.items, { userId, id, title, body }]
+    }));
   }
 
   componentDidMount() {
@@ -76,7 +85,11 @@ class App extends Component {
       {
         Header: "Action",
         Cell: props => {
-          return <button className="">More details</button>;
+          return (
+            <Router>
+              <Link to={"/:post_id"}>More</Link>
+            </Router>
+          );
         }
       }
     ];
@@ -88,7 +101,11 @@ class App extends Component {
           data={this.state.items}
           defaultPageSize={10}
         />
-        {/* <Add /> */}
+        <Form addItem={this.addItem} />
+
+        <Router>
+          <Route path="/:post_id" component={Post} />
+        </Router>
       </div>
     );
   }
