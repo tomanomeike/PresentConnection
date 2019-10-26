@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Link } from "react-router-dom";
+import Table from "react-bootstrap/Table";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "react-bootstrap/Button";
 
 class Home extends Component {
   constructor(props) {
@@ -34,23 +37,29 @@ class Home extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div className="Home">
-          <Link to="./Form">Add Item</Link>><th>User id</th>
-          <th>Id</th>
+        <div className="home">
+          <Link to="./Form">Add Item>></Link>
+          <th style={{ width: "10vw" }}>User id</th>
+          <th style={{ width: "10vw" }}>Id</th>
           <th>Title</th>
           <th>Body</th>
+          <th>Action</th>
           {items.map(item => (
-            <table key={item.id}>
+            <Table>
               <tr>
-                <td>{item.userId}</td>
-                <td>{item.id}</td>
+                <td style={{ width: "1vw" }}>{item.userId}</td>
+                <td style={{ width: "1vw" }}>{item.id}</td>
                 <td>{item.title}</td>
                 <td>{item.body}</td>
-                <td>
-                  <Link to={"/" + item.id}>More details>></Link>>
+                <td style={{ width: "1vw" }}>
+                  <Link to={"/" + item.id}>
+                    <Button variant="info" type="button">
+                      More details>>
+                    </Button>
+                  </Link>
                 </td>
               </tr>
-            </table>
+            </Table>
           ))}
         </div>
       );

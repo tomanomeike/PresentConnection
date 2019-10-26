@@ -4,6 +4,7 @@ import Home from "./Home";
 import Form from "./Form";
 import Post from "./Post";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   render() {
