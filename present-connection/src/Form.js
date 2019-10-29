@@ -16,10 +16,16 @@ class Form extends Component {
     this.props.addItem(userId, id, title, body);
     form.reset();
   }
+  onChange = e => {
+    this.setState({
+      id: e.target.value
+    });
+  };
 
   render() {
     return (
-      <form onSubmit={this.formSubmit}>
+      <form className="form" onSubmit={this.formSubmit}>
+        <h4>Add new Item</h4>
         <input
           id="userId"
           type="text"
@@ -29,7 +35,14 @@ class Form extends Component {
         <input id="id" type="text" defaultValue="" placeholder="Id..." />
         <input id="title" type="text" defaultValue="" placeholder="Title..." />
         <input id="body" type="text" defaultValue="" placeholder="Body..." />
-        <input type="submit" value="submit" />
+        <input type="submit" value="submit" onClick={this.submitForm} />
+        {/* <Link to="./">
+          {" "}
+          <Button variant="info" type="button">
+            Submit
+          </Button>
+        </Link> */}
+        {/* <button>Submit</button> */}
       </form>
     );
   }

@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Link } from "react-router-dom";
-import Table from "react-bootstrap/Table";
+import TableRow from "react-bootstrap/Table";
+import TableHead from "react-bootstrap/Table";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
+import Form from "./Form";
+import ScrollableAnchor from "react-scrollable-anchor";
 
 class Home extends Component {
   constructor(props) {
@@ -38,29 +41,51 @@ class Home extends Component {
     } else {
       return (
         <div className="home">
-          <Link to="./Form">Add Item>></Link>
-          <th style={{ width: "10vw" }}>User id</th>
-          <th style={{ width: "10vw" }}>Id</th>
-          <th>Title</th>
-          <th>Body</th>
-          <th>Action</th>
+          {/* <Link to="./Form">
+            {" "}
+            <Button variant="info" type="button">
+              Add Item
+            </Button>
+          </Link> */}
+
+          <Button className="addButton" href="#section1">
+            {" "}
+            Add Item{" "}
+          </Button>
+
+          <TableHead>
+            <TableRow>
+              <th>User ID</th>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Body</th>
+              <th>Action</th>
+            </TableRow>
+          </TableHead>
           {items.map(item => (
-            <Table>
+            <TableRow>
               <tr>
-                <td style={{ width: "1vw" }}>{item.userId}</td>
-                <td style={{ width: "1vw" }}>{item.id}</td>
+                <td>{item.userId}</td>
+                <td>{item.id}</td>
                 <td>{item.title}</td>
                 <td>{item.body}</td>
-                <td style={{ width: "1vw" }}>
+                <td>
                   <Link to={"/" + item.id}>
-                    <Button variant="info" type="button">
-                      More details>>
+                    <Button variant="outline-secondary" type="button">
+                      Details
                     </Button>
                   </Link>
                 </td>
               </tr>
-            </Table>
+            </TableRow>
           ))}
+
+          <ScrollableAnchor id={"section1"}>
+            <div>
+              {" "}
+              <Form addItem={this.addItem} />{" "}
+            </div>
+          </ScrollableAnchor>
         </div>
       );
     }

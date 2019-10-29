@@ -1,5 +1,5 @@
 body {
-  margin: 200px;
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -13,25 +13,63 @@ code {
 }
 
 .home {
-  text-align: center;
+  /* text-align: center; */
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  border: 3px solid #ddd;
   width: 100%;
+  margin: 20px;
 }
 
 .home th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #4caf50;
-  color: white;
-  width: 100vh;
+  background-color: #e0e0e0;
+  color: black;
+  width: 20%;
 }
 .home .table {
   margin-bottom: 0;
+  border-top: 1px solid black;
+  text-align: center;
 }
 td {
   height: 20vh;
-  width: 20vh;
+  width: 20%;
+}
+.details {
+  background-color: white;
+  margin: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #efefef;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 10px 0 -5px #eee,
+    0 10px 1px -4px rgba(0, 0, 0, 0.15), 0 20px 0 -10px #eee,
+    0 20px 1px -9px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  margin-top: 40px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.form input {
+  height: 44px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid #dbe2e8;
+  font-size: 14px;
+  border-radius: 2px;
+  color: #636363;
+  box-shadow: 0 2px 2px 0 rgba(46, 60, 73, 0.05);
+  outline: none;
+  width: 40%;
+}
+.addButton {
+  margin: 2em;
 }

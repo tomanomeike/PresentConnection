@@ -23,7 +23,7 @@ class Post extends Component {
   }
   render() {
     const item = this.state.item ? (
-      <div>
+      <div className="details">
         <h4> {this.state.item.title}</h4>
         <p>{this.state.item.body}</p>
       </div>
